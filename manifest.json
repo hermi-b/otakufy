@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify Lyrics Furigana",
+  "version": "1.0",
+  "description": "Adds furigana readings to Spotify lyrics for Japanese kanji readability.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": [
+    "https://open.spotify.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "js": ["kuromoji.js", "content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["kuromoji.js", "dict/*"],
+      "matches": ["https://open.spotify.com/*"]
+    }
+  ]
+}
